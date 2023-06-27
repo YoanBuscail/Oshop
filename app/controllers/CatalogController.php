@@ -2,9 +2,12 @@
 
 class CatalogController
 {
-    public function category()
+    public function category($params)
     {
-        $this->show("products_list");
+        // Maintenant on peut récupérer la bonne catégories dans la DB
+        // Vu qu'on n'a pas encore de db, pour l'instant on va se contenter de passer l'id à la vue pour l'afficher.
+
+        $this->show("products_list", ["id" => $params["id"]]);
     }
 
     /**
