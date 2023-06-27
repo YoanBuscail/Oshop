@@ -13,7 +13,6 @@ class ErrorController
      * @param string $viewName
      * @param array $viewData (Facultatif)
      */
-    
     private function show($viewName, $viewData = [])
     {
         require_once __DIR__ . "/../views/header.tpl.php";
