@@ -10,6 +10,21 @@ class CatalogController
         $this->show("products_list", ["id" => $params["id"]]);
     }
 
+    public function type($params)
+    {
+        $this->show("type", ["id" => $params["id"]]);
+    }
+
+    public function brand($params)
+    {
+        $this->show("brand", ["id" => $params["id"]]);
+    }
+
+    public function product($params)
+    {
+        $this->show("product", ["id" => $params["id"]]);
+    }
+
     /**
      * Affiche la page
      *
@@ -18,6 +33,8 @@ class CatalogController
      */
     private function show($viewName, $viewData = [])
     {
+        $absoluteURL = $_SERVER['BASE_URI'];
+
         require_once __DIR__ . "/../views/header.tpl.php";
         require_once __DIR__ . "/../views/$viewName.tpl.php";
         require_once __DIR__ . "/../views/footer.tpl.php";

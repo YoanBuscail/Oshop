@@ -112,10 +112,10 @@
 </footer>
 
 <!-- JS -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="<?= $absoluteURL ?>/assets/js/jquery.min.js"></script>
+<script src="<?= $absoluteURL ?>/assets/js/popper.min.js"></script>
+<script src="<?= $absoluteURL ?>/assets/js/bootstrap.min.js"></script>
+<script src="<?= $absoluteURL ?>/assets/js/app.js"></script>
 </body>
 
 </html>

@@ -47,6 +47,46 @@ $router->map(
     'category'
 );
 
+$router->map(
+    "GET",
+    "/legal-notice",
+    [
+        'controller' => 'MainController',
+        'method' => 'legalNotice',
+    ],
+    'legal-notice'
+);
+
+$router->map(
+    "GET",
+    "/type/[i:id]",
+    [
+        'controller' => 'CatalogController',
+        'method' => 'type',
+    ],
+    'type'
+);
+
+$router->map(
+    "GET",
+    "/brand/[i:id]",
+    [
+        'controller' => 'CatalogController',
+        'method' => 'brand',
+    ],
+    'brand'
+);
+
+$router->map(
+    "GET",
+    "/product/[i:id]",
+    [
+        'controller' => 'CatalogController',
+        'method' => 'product',
+    ],
+    'product'
+);
+
 // En gros $router->match() nous indique sur quelle route on est SI elle a été définie dans le map().
 // Si elle existe, $match (ici) prendra le contenu de la route définie
 // SINON elle retourne false.
@@ -57,6 +97,7 @@ if ($match) {
 
     $controller = new $match['target']['controller']();
     $method = $match['target']['method'];
+
 
     // Le dispatcher
     $controller->$method($match["params"]);
