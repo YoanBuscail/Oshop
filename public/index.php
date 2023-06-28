@@ -39,32 +39,22 @@ $router->map(
 
 $router->map(
     "GET",
+    "/legal-notice",
+    [
+        'controller' => 'MainController',
+        'method' => 'legalNotice',
+    ],
+    'legalNotice'
+);
+
+$router->map(
+    "GET",
     "/category/[i:id]",
     [
         'controller' => 'CatalogController',
         'method' => 'category',
     ],
     'category'
-);
-
-$router->map(
-    "GET",
-    "/legal-notice",
-    [
-        'controller' => 'MainController',
-        'method' => 'legalNotice',
-    ],
-    'legal-notice'
-);
-
-$router->map(
-    "GET",
-    "/general-terms",
-    [
-        'controller' => 'MainController',
-        'method' => 'generalTerms',
-    ],
-    'general-terms'
 );
 
 $router->map(
@@ -107,7 +97,6 @@ if ($match) {
 
     $controller = new $match['target']['controller']();
     $method = $match['target']['method'];
-
 
     // Le dispatcher
     $controller->$method($match["params"]);
