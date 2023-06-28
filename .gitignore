@@ -1,3 +1,8 @@
 import_trello.php
 import-external-repo.sh
 /vendor
+
+# On empèche le fichier config.ini d'être commité car il contient des
+# informations critique (les identifiant de connexion à le BDD).
+# On ne veut SURTOUT PAS RETROUVER CES INFORMATION EN LIGNE, même sur Github.
+config.ini

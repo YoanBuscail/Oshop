@@ -2,6 +2,16 @@
 
 class MainController
 {
+    public function test()
+    {
+        $model = new Product();
+        $productsList = $model->findAll();
+        
+        $product = $model->find(3);
+        
+        dd($productsList, $product);
+    }
+
     public function home()
     {
         $this->show("home");

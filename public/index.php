@@ -16,6 +16,12 @@ require_once __DIR__ . "/../app/controllers/ErrorController.php";
 require_once __DIR__ . "/../app/controllers/MainController.php";
 require_once __DIR__ . "/../app/controllers/CatalogController.php";
 
+require_once __DIR__ . "/../app/utils/Database.php";
+require_once __DIR__ . "/../app/models/Product.php";
+require_once __DIR__ . "/../app/models/Brand.php";
+require_once __DIR__ . "/../app/models/Type.php";
+require_once __DIR__ . "/../app/models/Category.php";
+
 $router = new AltoRouter();
 
 // On spéficie d'où on part pour nos routes
@@ -85,6 +91,17 @@ $router->map(
         'method' => 'product',
     ],
     'product'
+);
+
+// Cette route, c'est pour la démo, ça va pas rester
+$router->map(
+    "GET",
+    "/test",
+    [
+        'controller' => 'MainController',
+        'method' => 'test',
+    ],
+    'test'
 );
 
 // En gros $router->match() nous indique sur quelle route on est SI elle a été définie dans le map().
