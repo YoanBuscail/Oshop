@@ -59,6 +59,16 @@ $router->map(
 
 $router->map(
     "GET",
+    "/general-terms",
+    [
+        'controller' => 'MainController',
+        'method' => 'generalTerms',
+    ],
+    'general-terms'
+);
+
+$router->map(
+    "GET",
     "/type/[i:id]",
     [
         'controller' => 'CatalogController',

@@ -9,7 +9,12 @@ class MainController
 
     public function legalNotice()
     {
-        $this->show("legal-notice");
+        $this->show("legal_notice");
+    }
+
+    public function generalTerms()
+    {
+        $this->show("general_terms");
     }
 
     /**
@@ -20,7 +25,9 @@ class MainController
      */
     private function show($viewName, $viewData = [])
     {
-        $absoluteURL = $_SERVER['BASE_URI'];
+        global $router; // Ce truc là, c'est DÉGUEULASSE.
+        
+        $asoluteUrl = $_SERVER['BASE_URI'];
 
         require_once __DIR__ . "/../views/header.tpl.php";
         require_once __DIR__ . "/../views/$viewName.tpl.php";
