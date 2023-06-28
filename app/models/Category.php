@@ -109,4 +109,31 @@ class Category
 
         return $this;
     }
+
+    /**
+     * Retourne la liste de toutes les catégories de la BDD
+     *
+     * @return Category[]
+     */
+    public function findAll()
+    {
+        // Connexion à la base de données en utilisant la classe Database
+        // (dont on a pas besoin de connaître le contenu)
+        $pdo = Database::getPDO();
+
+        // Créer la bonne requete SQL
+        $sql = "SELECT `id`, `name`, `subtitle`, `picture`, `home_order` FROM `category`";
+
+        // On va devoir l'exécuter
+        $pdoStatement = $pdo->query($sql);
+        if ($pdoStatement === false) {
+            exit("Problème lors de la récupération de la liste des catégories");
+        }
+
+        // On récupèrera le résultat sous forme d'objets
+        $results = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Category');
+
+        // On retournera le résultat
+        return $results;
+    }
 }

@@ -58,4 +58,31 @@ class Type
 
         return $this;
     }
+
+    /**
+     * Retourne la liste de tous les types de la BDD
+     *
+     * @return Type[]
+     */
+    public function findAll()
+    {
+        // Connexion à la base de données en utilisant la classe Database
+        // (dont on a pas besoin de connaître le contenu)
+        $pdo = Database::getPDO();
+
+        // Créer la bonne requete SQL
+        $sql = "SELECT `id`, `name` FROM `brand`";
+
+        // On va devoir l'exécuter
+        $pdoStatement = $pdo->query($sql);
+        if ($pdoStatement === false) {
+            exit("Problème lors de la récupération de la liste des types");
+        }
+
+        // On récupèrera le résultat sous forme d'objets
+        $results = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Type');
+
+        // On retournera le résultat
+        return $results;
+    }
 }

@@ -4,12 +4,12 @@ class MainController
 {
     public function test()
     {
-        $model = new Product();
+        $model = new Brand();
         $productsList = $model->findAll();
 
-        $product = $model->find(5);
+        // $product = $model->find(5);
 
-        dd($productsList, $product);
+        dd($productsList);
     }
 
     public function home()
@@ -20,6 +20,11 @@ class MainController
     public function legalNotice()
     {
         $this->show("legal_notice");
+    }
+
+    public function generalTerms()
+    {
+        $this->show("general_terms");
     }
 
     /**
