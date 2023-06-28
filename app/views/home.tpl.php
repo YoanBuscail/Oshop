@@ -14,7 +14,7 @@
                 <div class="card border-0 text-white text-center"><img src="<?= $absoluteUrl ?>/assets/images/categ2.jpeg" alt="Card image" class="card-img">
                     <div class="card-img-overlay d-flex align-items-center">
                         <div class="w-100 py-3">
-                            <h2 class="display-3 font-weight-bold mb-4">Au travail</h2><a href="products_list.html" class="btn btn-light">C'est parti</a>
+                            <h2 class="display-3 font-weight-bold mb-4">Au travail</h2><a href="products_list.tpl.php" class="btn btn-light">C'est parti</a>
                         </div>
                     </div>
                 </div>

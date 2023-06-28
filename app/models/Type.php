@@ -71,7 +71,7 @@ class Type
         $pdo = Database::getPDO();
 
         // Créer la bonne requete SQL
-        $sql = "SELECT `id`, `name` FROM `brand`";
+        $sql = "SELECT `id`, `name` FROM `type`";
 
         // On va devoir l'exécuter
         $pdoStatement = $pdo->query($sql);
@@ -84,5 +84,28 @@ class Type
 
         // On retournera le résultat
         return $results;
+    }
+
+    /**
+     * Retourne un produit spécifique via son id dans la BDD
+     *
+     * @param int $id
+     *
+     * @return Type
+     */
+    public function find($id)
+    {
+    $pdo = Database::getPDO();
+
+    $sql = "SELECT `id`, `name` FROM `type` WHERE id = $id";
+
+    $pdoStatement = $pdo->query($sql);
+    if ($pdoStatement === false) {
+        exit("Problème lors de la récupération du type n°$id");
+    }
+
+    $result = $pdoStatement->fetchObject('Type');
+
+    return $result;
     }
 }

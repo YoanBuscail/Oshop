@@ -18,6 +18,9 @@ require_once __DIR__ . "/../app/controllers/CatalogController.php";
 
 require_once __DIR__ . "/../app/utils/Database.php";
 require_once __DIR__ . "/../app/models/Product.php";
+require_once __DIR__ . "/../app/models/Category.php";
+require_once __DIR__ . "/../app/models/Brand.php";
+require_once __DIR__ . "/../app/models/Type.php";
 
 $router = new AltoRouter();
 

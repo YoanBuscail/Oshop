@@ -136,4 +136,27 @@ class Category
         // On retournera le résultat
         return $results;
     }
+
+    /**
+     * Retourne une catégorie spécifique via son id dans la BDD
+     *
+     * @param int $id
+     *
+     * @return Category
+     */
+    public function find($id)
+    {
+    $pdo = Database::getPDO();
+
+    $sql = "SELECT `id`, `name`, `subtitle`, `picture`, `home_order` FROM `category` WHERE id = $id";
+
+    $pdoStatement = $pdo->query($sql);
+    if ($pdoStatement === false) {
+        exit("Problème lors de la récupération de la catégorie n°$id");
+    }
+
+    $result = $pdoStatement->fetchObject('Category');
+
+    return $result;
+    }
 }

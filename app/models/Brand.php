@@ -99,4 +99,27 @@ class Brand
         // On retournera le résultat
         return $results;
     }
+
+    /**
+    * Retourne une catégorie spécifique via son id dans la BDD
+    *
+    * @param int $id
+    *
+    * @return Brand
+    */
+    public function find($id)
+    {
+    $pdo = Database::getPDO();
+
+    $sql = "SELECT `id`, `name` FROM `brand` WHERE id = $id";
+
+    $pdoStatement = $pdo->query($sql);
+    if ($pdoStatement === false) {
+        exit("Problème lors de la récupération de la marque n°$id");
+    }
+
+    $result = $pdoStatement->fetchObject('Brand');
+
+    return $result;
+    }
 }

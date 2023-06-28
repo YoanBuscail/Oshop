@@ -4,12 +4,12 @@ class MainController
 {
     public function test()
     {
-        $model = new Brand();
+        $model = new Category();
         $productsList = $model->findAll();
 
-        // $product = $model->find(5);
+        $product = $model->find(2);
 
-        dd($productsList);
+        dd($productsList, $product);
     }
 
     public function home()
