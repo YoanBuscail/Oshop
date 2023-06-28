@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="<?= $asoluteUrl ?>/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= $asoluteUrl ?>/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?= $asoluteUrl ?>/assets/css/styles.css">
+    <link rel="stylesheet" href="<?= $absoluteUrl ?>/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= $absoluteUrl ?>/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= $absoluteUrl ?>/assets/css/styles.css">
     <title>oShop</title>
 </head>
 
@@ -42,13 +42,13 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Catégories</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="products_list.tpl.php">Au travail</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Cérémonie</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Détente</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Piscine et bains</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Sortir</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Sport</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Vintage</a>
+                                    <a class="dropdown-item" href="products_list.html">Au travail</a>
+                                    <a class="dropdown-item" href="products_list.html">Cérémonie</a>
+                                    <a class="dropdown-item" href="products_list.html">Détente</a>
+                                    <a class="dropdown-item" href="products_list.html">Piscine et bains</a>
+                                    <a class="dropdown-item" href="products_list.html">Sortir</a>
+                                    <a class="dropdown-item" href="products_list.html">Sport</a>
+                                    <a class="dropdown-item" href="products_list.html">Vintage</a>
                                 </div>
                             </div>
                         </li>
@@ -56,12 +56,12 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Types de produits</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="products_list.tpl.php">Chaussons</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Chaussures de sport</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Chaussures de ville</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Chaussures ouvertes</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Pantoufles</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Talons</a>
+                                    <a class="dropdown-item" href="products_list.html">Chaussons</a>
+                                    <a class="dropdown-item" href="products_list.html">Chaussures de sport</a>
+                                    <a class="dropdown-item" href="products_list.html">Chaussures de ville</a>
+                                    <a class="dropdown-item" href="products_list.html">Chaussures ouvertes</a>
+                                    <a class="dropdown-item" href="products_list.html">Pantoufles</a>
+                                    <a class="dropdown-item" href="products_list.html">Talons</a>
                                 </div>
                             </div>
                         </li>
@@ -69,12 +69,12 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Marques</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="products_list.tpl.php">BOOTstrap</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">O'shoes</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">oCirage</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">oPompes</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">Pattes d'eph</a>
-                                    <a class="dropdown-item" href="products_list.tpl.php">PHPieds</a>
+                                    <a class="dropdown-item" href="products_list.html">BOOTstrap</a>
+                                    <a class="dropdown-item" href="products_list.html">O'shoes</a>
+                                    <a class="dropdown-item" href="products_list.html">oCirage</a>
+                                    <a class="dropdown-item" href="products_list.html">oPompes</a>
+                                    <a class="dropdown-item" href="products_list.html">Pattes d'eph</a>
+                                    <a class="dropdown-item" href="products_list.html">PHPieds</a>
                                 </div>
                             </div>
                         </li>
