@@ -2,12 +2,12 @@
     <div class="container">
         <!-- Breadcrumbs -->
         <ol class="breadcrumb justify-content-center">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="<?= $router->generate('home') ?>">Home</a></li>
             <li class="breadcrumb-item active">Détente</li>
         </ol>
         <!-- Hero Content-->
         <div class="hero-content pb-5 text-center">
-            <h1 class="hero-heading">Détente</h1>
+            <h1 class="hero-heading"><?= $viewData['title'] ?> n°<?= $viewData['id'] ?></h1>
             <div class="row">
                 <div class="col-xl-8 offset-xl-2">
                     <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
@@ -40,7 +40,7 @@
             <div class="product col-xl-3 col-lg-4 col-sm-6">
                 <div class="product-image">
                     <a href="product.html" class="product-hover-overlay-link">
-                        <img src="assets/images/produits/1-kiss_tn.jpg" alt="product" class="img-fluid">
+                        <img src="<?= $asoluteUrl ?>/assets/images/produits/1-kiss_tn.jpg" alt="product" class="img-fluid">
                     </a>
                 </div>
                 <div class="product-action-buttons">
@@ -57,7 +57,7 @@
             <div class="product col-xl-3 col-lg-4 col-sm-6">
                 <div class="product-image">
                     <a href="product.html" class="product-hover-overlay-link">
-                        <img src="assets/images/produits/2-rose_tn.jpg" alt="product" class="img-fluid">
+                        <img src="<?= $asoluteUrl ?>/assets/images/produits/2-rose_tn.jpg" alt="product" class="img-fluid">
                     </a>
                 </div>
                 <div class="product-action-buttons">
@@ -74,7 +74,7 @@
             <div class="product col-xl-3 col-lg-4 col-sm-6">
                 <div class="product-image">
                     <a href="product.html" class="product-hover-overlay-link">
-                        <img src="assets/images/produits/3-panda_tn.jpg" alt="product" class="img-fluid">
+                        <img src="<?= $asoluteUrl ?>/assets/images/produits/3-panda_tn.jpg" alt="product" class="img-fluid">
                     </a>
                 </div>
                 <div class="product-action-buttons">
@@ -91,7 +91,7 @@
             <div class="product col-xl-3 col-lg-4 col-sm-6">
                 <div class="product-image">
                     <a href="product.html" class="product-hover-overlay-link">
-                        <img src="assets/images/produits/20-deadpool_tn.jpg" alt="product" class="img-fluid">
+                        <img src="<?= $asoluteUrl ?>/assets/images/produits/20-deadpool_tn.jpg" alt="product" class="img-fluid">
                     </a>
                 </div>
                 <div class="product-action-buttons">
