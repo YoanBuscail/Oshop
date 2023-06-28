@@ -42,13 +42,17 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Catégories</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="products_list.html">Au travail</a>
-                                    <a class="dropdown-item" href="products_list.html">Cérémonie</a>
-                                    <a class="dropdown-item" href="products_list.html">Détente</a>
-                                    <a class="dropdown-item" href="products_list.html">Piscine et bains</a>
-                                    <a class="dropdown-item" href="products_list.html">Sortir</a>
-                                    <a class="dropdown-item" href="products_list.html">Sport</a>
-                                    <a class="dropdown-item" href="products_list.html">Vintage</a>
+                                <?php
+                                    // Créer une instance de la classe Category
+                                    $category = new Category();
+                                    // Récupérer toutes les catégories à partir de la base de données
+                                    $categories = $category->findAll();
+                                ?>
+                                <?php foreach ($categories as $categoryObj) { ?>
+                                    <a class="dropdown-item" href="products_list.html"><?= $categoryObj->getName(); ?></a>
+                                <?php 
+                                }; 
+                                ?>
                                 </div>
                             </div>
                         </li>
@@ -56,12 +60,17 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Types de produits</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="products_list.html">Chaussons</a>
-                                    <a class="dropdown-item" href="products_list.html">Chaussures de sport</a>
-                                    <a class="dropdown-item" href="products_list.html">Chaussures de ville</a>
-                                    <a class="dropdown-item" href="products_list.html">Chaussures ouvertes</a>
-                                    <a class="dropdown-item" href="products_list.html">Pantoufles</a>
-                                    <a class="dropdown-item" href="products_list.html">Talons</a>
+                                <?php
+                                    // Créer une instance de la classe Type
+                                    $type = new Type();
+                                    // Récupérer toutes les catégories à partir de la base de données
+                                    $types = $type->findAll();
+                                ?>
+                                <?php foreach ($types as $typeObj) { ?>
+                                    <a class="dropdown-item" href="products_list.html"><?= $typeObj->getName(); ?></a>
+                                <?php 
+                                }; 
+                                ?>
                                 </div>
                             </div>
                         </li>
@@ -69,12 +78,17 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Marques</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="products_list.html">BOOTstrap</a>
-                                    <a class="dropdown-item" href="products_list.html">O'shoes</a>
-                                    <a class="dropdown-item" href="products_list.html">oCirage</a>
-                                    <a class="dropdown-item" href="products_list.html">oPompes</a>
-                                    <a class="dropdown-item" href="products_list.html">Pattes d'eph</a>
-                                    <a class="dropdown-item" href="products_list.html">PHPieds</a>
+                                <?php
+                                    // Créer une instance de la classe Brand
+                                    $brand = new Brand();
+                                    // Récupérer toutes les marques à partir de la base de données
+                                    $brands = $brand->findAll();
+                                ?>
+                                <?php foreach ($brands as $brandObj) { ?>
+                                    <a class="dropdown-item" href="products_list.html"><?= $brandObj->getName(); ?></a>
+                                <?php 
+                                }; 
+                                ?>
                                 </div>
                             </div>
                         </li>

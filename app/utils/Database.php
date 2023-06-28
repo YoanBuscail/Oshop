@@ -30,7 +30,11 @@ class Database
             exit;
         }
     }
+
     // the unique method you need to use
+    /**
+     * @return PDO
+     */
     public static function getPDO()
     {
         // If no instance => create one
