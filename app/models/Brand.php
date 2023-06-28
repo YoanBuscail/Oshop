@@ -18,22 +18,25 @@ class Brand
     private $updated_at;
 
     /**
-     * Get the value of id
-     */ 
+     * Retourne l'id de la marque
+     *
+     * @return int
+     */
     public function getId()
     {
         return $this->id;
     }
 
     /**
-     * Set the value of id
+     * Permet de remplir l'id de la marque
      *
-     * @return  self
-     */ 
+     * @param int $id
+     *
+     * @return self
+     */
     public function setId($id)
     {
         $this->id = $id;
-
         return $this;
     }
 
@@ -45,31 +48,28 @@ class Brand
     public function setName($name)
     {
         $this->name = $name;
-
         return $this;
     }
- 
-    public function getCreated_at()
+
+    public function getCreatedAt()
     {
         return $this->created_at;
     }
 
-    public function setCreated_at($created_at)
+    public function setCreatedAt($created_at)
     {
         $this->created_at = $created_at;
-
         return $this;
     }
 
-    public function getUpdated_at()
+    public function getUpdatedAt()
     {
         return $this->updated_at;
     }
 
-    public function setUpdated_at($updated_at)
+    public function setUpdatedAt($updated_at)
     {
         $this->updated_at = $updated_at;
-
         return $this;
     }
 }

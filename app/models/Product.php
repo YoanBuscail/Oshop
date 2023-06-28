@@ -1,8 +1,5 @@
 <?php
 
-/**
- * Model servant à gérer les marques
- */
 class Product
 {
     private $id;
@@ -26,7 +23,6 @@ class Product
     public function setId($id)
     {
         $this->id = $id;
-
         return $this;
     }
 
@@ -38,7 +34,6 @@ class Product
     public function setName($name)
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -50,7 +45,6 @@ class Product
     public function setDescription($description)
     {
         $this->description = $description;
-
         return $this;
     }
 
@@ -62,7 +56,6 @@ class Product
     public function setPicture($picture)
     {
         $this->picture = $picture;
-
         return $this;
     }
 
@@ -74,7 +67,6 @@ class Product
     public function setPrice($price)
     {
         $this->price = $price;
-
         return $this;
     }
 
@@ -86,7 +78,6 @@ class Product
     public function setRate($rate)
     {
         $this->rate = $rate;
-
         return $this;
     }
 
@@ -98,78 +89,73 @@ class Product
     public function setStatus($status)
     {
         $this->status = $status;
-
         return $this;
     }
 
-    public function getCreated_at()
+    public function getCreatedAt()
     {
         return $this->created_at;
     }
 
-    public function setCreated_at($created_at)
+    public function setCreatedAt($created_at)
     {
         $this->created_at = $created_at;
-
         return $this;
     }
 
-    public function getUpdated_at()
+    public function getUpdatedAt()
     {
         return $this->updated_at;
     }
 
-    public function setUpdated_at($updated_at)
+    public function setUpdatedAt($updated_at)
     {
         $this->updated_at = $updated_at;
-
         return $this;
     }
- 
-    public function getBrand_id()
+
+    public function getBrandId()
     {
         return $this->brand_id;
     }
 
-    public function setBrand_id($brand_id)
+    public function setBrandId($brand_id)
     {
         $this->brand_id = $brand_id;
-
         return $this;
     }
 
-    public function getCategory_id()
+    public function getCategoryId()
     {
         return $this->category_id;
     }
 
-    public function setCategory_id($category_id)
+    public function setCategoryId($category_id)
     {
         $this->category_id = $category_id;
-
         return $this;
     }
- 
-    public function getType_id()
+
+    public function getTypeId()
     {
         return $this->type_id;
     }
 
-    public function setType_id($type_id)
+    public function setTypeId($type_id)
     {
         $this->type_id = $type_id;
-
         return $this;
     }
 
-     /**
+    /**
      * Retourne la liste de tous les produits de la BDD
      *
      * @return Product[]
      */
     public function findAll()
     {
-        // Se connecter à la BDD
+        // Connexion à la base de données en utilisant la classe Database
+        // (dont on a pas besoin de connaître le contenu)
         $pdo = Database::getPDO();
 
         // Créer la bonne requete SQL
@@ -189,12 +175,12 @@ class Product
     }
 
     /**
-    * Retourne un produit spécifique via son id dans la BDD
-    *
-    * @param int $id
-    *
-    * @return Product
-    */
+     * Retourne un produit spécifique via son id dans la BDD
+     *
+     * @param int $id
+     *
+     * @return Product
+     */
     public function find($id)
     {
         $pdo = Database::getPDO();

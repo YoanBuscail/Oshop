@@ -6,9 +6,9 @@ class MainController
     {
         $model = new Product();
         $productsList = $model->findAll();
-        
-        $product = $model->find(3);
-        
+
+        $product = $model->find(5);
+
         dd($productsList, $product);
     }
 
