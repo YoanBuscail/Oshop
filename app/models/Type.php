@@ -24,9 +24,16 @@ class Type extends CoreModel
      *
      * @return Type[]
      */
-    public function findAll()
+    public function findAll($sort = "")
     {
         $pdo = Database::getPDO();
+
+        $sql = "SELECT * FROM `type`";
+
+        // Si $sort n'est pas vide, alors on ajoute ORDER BY dans notre requete SQL
+        if ($sort !== "") {
+            $sql .= " ORDER BY $sort";
+        }
 
         $pdoStatement = $pdo->query("SELECT * FROM type");
         if ($pdoStatement === false) {

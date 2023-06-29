@@ -1,6 +1,6 @@
 <?php
 
-class CatalogController
+class CatalogController extends ControllerModel
 {
     public function category($params)
     {
@@ -74,31 +74,5 @@ class CatalogController
     public function product($params)
     {
         $this->show("product", ["id" => $params["id"]]);
-    }
-
-    /**
-     * Affiche la page
-     *
-     * @param string $viewName
-     * @param array $viewData (Facultatif)
-     */
-    private function show($viewName, $viewData = [])
-    {
-        global $router; // Ce truc là, c'est DÉGUEULASSE.
-
-        $absoluteUrl = $_SERVER["BASE_URI"];
-
-        $categoryModel = new Category();
-        $categoriesList = $categoryModel->findAll("name");
-
-        $typeModel = new Type();
-        $typesList = $typeModel->findAll();
-
-        $brandModel = new Brand();
-        $brandsList = $brandModel->findAll();
-
-        require_once __DIR__ . "/../views/header.tpl.php";
-        require_once __DIR__ . "/../views/$viewName.tpl.php";
-        require_once __DIR__ . "/../views/footer.tpl.php";
     }
 }

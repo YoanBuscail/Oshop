@@ -24,9 +24,16 @@ class Brand extends CoreModel
      *
      * @return Brand[]
      */
-    public function findAll()
+    public function findAll($sort = "")
     {
         $pdo = Database::getPDO();
+
+        $sql = "SELECT * FROM brand";
+
+        // Si $sort n'est pas vide, alors on ajoute ORDER BY dans notre requete SQL
+        if ($sort !== "") {
+            $sql .= " ORDER BY $sort";
+        }
 
         $pdoStatement = $pdo->query("SELECT * FROM brand");
         if ($pdoStatement === false) {

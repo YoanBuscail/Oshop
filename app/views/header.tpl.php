@@ -42,7 +42,7 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Catégories</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <?php
+                                <?php
                                     foreach ($categoriesList as $categoryElement) {
                                         ?>
                                         <a class="dropdown-item" href="<?= $router->generate("category", ["id" => $categoryElement->getId()]) ?>"><?= $categoryElement->getName() ?></a>
@@ -56,12 +56,11 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Types de produits</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="products_list.html">Chaussons</a>
-                                    <a class="dropdown-item" href="products_list.html">Chaussures de sport</a>
-                                    <a class="dropdown-item" href="products_list.html">Chaussures de ville</a>
-                                    <a class="dropdown-item" href="products_list.html">Chaussures ouvertes</a>
-                                    <a class="dropdown-item" href="products_list.html">Pantoufles</a>
-                                    <a class="dropdown-item" href="products_list.html">Talons</a>
+                                <?php foreach ($typesList as $typeElement) { ?>
+                                    <a class="dropdown-item" href="<?= $router->generate("type", ["id" => $typeElement->getId()]) ?>"><?= $typeElement->getName(); ?></a>
+                                <?php 
+                                }; 
+                                ?>
                                 </div>
                             </div>
                         </li>
@@ -69,12 +68,11 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Marques</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="products_list.html">BOOTstrap</a>
-                                    <a class="dropdown-item" href="products_list.html">O'shoes</a>
-                                    <a class="dropdown-item" href="products_list.html">oCirage</a>
-                                    <a class="dropdown-item" href="products_list.html">oPompes</a>
-                                    <a class="dropdown-item" href="products_list.html">Pattes d'eph</a>
-                                    <a class="dropdown-item" href="products_list.html">PHPieds</a>
+                                <?php foreach ($brandsList as $brandElement) { ?>
+                                    <a class="dropdown-item" href="<?= $router->generate("brand", ["id" => $brandElement->getId()]) ?>"><?= $brandElement->getName(); ?></a>
+                                <?php 
+                                }; 
+                                ?>
                                 </div>
                             </div>
                         </li>
