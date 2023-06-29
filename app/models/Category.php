@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Model servant à gérer les marques
+ * Model servant à gérer les catégories
  */
 class Category
 {
-    /** @var int Identifiant unique de ma marque */
+    /** @var int Identifiant unique de ma catégorie */
     private $id;
 
     /** @var string */
@@ -117,24 +117,14 @@ class Category
      */
     public function findAll()
     {
-        // Connexion à la base de données en utilisant la classe Database
-        // (dont on a pas besoin de connaître le contenu)
         $pdo = Database::getPDO();
 
-        // Créer la bonne requete SQL
-        $sql = "SELECT `id`, `name`, `subtitle`, `picture`, `home_order` FROM `category`";
-
-        // On va devoir l'exécuter
-        $pdoStatement = $pdo->query($sql);
+        $pdoStatement = $pdo->query("SELECT `id`, `name`, `subtitle`, `picture`, `home_order` FROM `category`");
         if ($pdoStatement === false) {
             exit("Problème lors de la récupération de la liste des catégories");
         }
 
-        // On récupèrera le résultat sous forme d'objets
-        $results = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Category');
-
-        // On retournera le résultat
-        return $results;
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Category');     
     }
 
     /**
@@ -148,15 +138,11 @@ class Category
     {
     $pdo = Database::getPDO();
 
-    $sql = "SELECT `id`, `name`, `subtitle`, `picture`, `home_order` FROM `category` WHERE id = $id";
-
-    $pdoStatement = $pdo->query($sql);
+    $pdoStatement = $pdo->query("SELECT `id`, `name`, `subtitle`, `picture`, `home_order` FROM `category` WHERE id = $id");
     if ($pdoStatement === false) {
         exit("Problème lors de la récupération de la catégorie n°$id");
     }
-
-    $result = $pdoStatement->fetchObject('Category');
-
-    return $result;
+    
+    return $pdoStatement->fetchObject('Category');
     }
 }

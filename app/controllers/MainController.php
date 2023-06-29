@@ -4,12 +4,25 @@ class MainController
 {
     public function test()
     {
-        $model = new Category();
+        $model = new Product();
         $productsList = $model->findAll();
+        $product = $model->find(5);
+        dump($productsList, $product);
 
-        $product = $model->find(2);
+        $model = new Brand();
+        $brandsList = $model->findAll();
+        $brand = $model->find(5);
+        dump($brandsList, $brand);
 
-        dd($productsList, $product);
+        $model = new Type();
+        $typesList = $model->findAll();
+        $type = $model->find(5);
+        dump($typesList, $type);
+
+        $model = new Category();
+        $categoriesList = $model->findAll();
+        $category = $model->find(5);
+        dump($categoriesList, $category);
     }
 
     public function home()

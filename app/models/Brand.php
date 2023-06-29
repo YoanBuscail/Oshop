@@ -1,8 +1,5 @@
 <?php
 
-/**
- * Model servant à gérer les marques
- */
 class Brand
 {
     /** @var int Identifiant unique de ma marque */
@@ -80,28 +77,19 @@ class Brand
      */
     public function findAll()
     {
-        // Connexion à la base de données en utilisant la classe Database
-        // (dont on a pas besoin de connaître le contenu)
+        
         $pdo = Database::getPDO();
 
-        // Créer la bonne requete SQL
-        $sql = "SELECT `id`, `name` FROM `brand`";
-
-        // On va devoir l'exécuter
-        $pdoStatement = $pdo->query($sql);
+        $pdoStatement = $pdo->query("SELECT `id`, `name` FROM `brand`");
         if ($pdoStatement === false) {
             exit("Problème lors de la récupération de la liste des marques");
         }
 
-        // On récupèrera le résultat sous forme d'objets
-        $results = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Brand');
-
-        // On retournera le résultat
-        return $results;
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Brand');
     }
 
     /**
-    * Retourne une catégorie spécifique via son id dans la BDD
+    * Retourne une marque spécifique via son id dans la BDD
     *
     * @param int $id
     *
@@ -109,17 +97,13 @@ class Brand
     */
     public function find($id)
     {
-    $pdo = Database::getPDO();
+        $pdo = Database::getPDO();
 
-    $sql = "SELECT `id`, `name` FROM `brand` WHERE id = $id";
+        $pdoStatement = $pdo->query("SELECT `id`, `name` FROM `brand` WHERE id = $id");
+        if ($pdoStatement === false) {
+            exit("Problème lors de la récupération de la marque n°$id");
+        }
 
-    $pdoStatement = $pdo->query($sql);
-    if ($pdoStatement === false) {
-        exit("Problème lors de la récupération de la marque n°$id");
-    }
-
-    $result = $pdoStatement->fetchObject('Brand');
-
-    return $result;
+        return $pdoStatement->fetchObject('Brand');
     }
 }
