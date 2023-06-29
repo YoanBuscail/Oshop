@@ -1,33 +1,6 @@
 # Requêtes SQL
 
-```sql
-SELECT `id`, `name`, `subtitle`, `picture`, `home_order` FROM `category`
-```
-
-```sql
-SELECT `id`, `name` FROM `type`
-```
-
-```sql
-SELECT `id`, `name` FROM `brand`
-```
-
-```sql
-SELECT `product`.`name`, `product`.`price`, `category`.`name`
-FROM `product`
-INNER JOIN `category` ON `category_id`=`product`.`category_id`
-WHERE `category`.`id`= 1
-```
-
-```sql
-SELECT `category`.`name` AS `Nom de la categorie`, COUNT(product.id) AS `Nb de produit`, `category_id` AS `ID de la catégorie`
-FROM `category`
-INNER JOIN `product` ON `category`.`id` = `product`.`category_id`
-GROUP BY `category`.`name`;
-```
-
 ## Récupérer toutes les categories par ordre alphabétique
-
 ```sql
 SELECT id, name
 FROM category
@@ -35,7 +8,6 @@ ORDER BY name ASC
 ```
 
 ## Récupérer tous les types par ordre alphabétique
-
 ```sql
 SELECT id, name
 FROM type
@@ -43,7 +15,6 @@ ORDER BY name ASC
 ```
 
 ## Récupérer toutes les marques par ordre alphabétique
-
 ```sql
 SELECT id, name
 FROM brand
@@ -51,7 +22,6 @@ ORDER BY name ASC
 ```
 
 ## Récupérer les 5 catégories mises en avant sur la homepage dans le bon ordre
-
 ```sql
 SELECT *
 FROM `category`
@@ -61,7 +31,6 @@ LIMIT 5;
 ```
 
 ## Récupérer les info de la catégorie 2
-
 ```sql
 SELECT id, name, subtitle
 FROM category
@@ -69,7 +38,6 @@ WHERE id = 2
 ```
 
 ## Récupérer la liste de tous les produits de la catégorie 7
-
 ```sql
 SELECT *
 FROM product
@@ -77,7 +45,6 @@ WHERE category_id = 7
 ```
 
 ## Récupérer les info du type 2
-
 ```sql
 SELECT id, name
 FROM type
@@ -85,7 +52,6 @@ WHERE id = 2
 ```
 
 ## Récupérer la liste de tous les produits du type 2
-
 ```sql
 SELECT *
 FROM product
@@ -93,7 +59,6 @@ WHERE type_id = 2
 ```
 
 ## Récupérer les info de la marque 2
-
 ```sql
 SELECT id, name
 FROM brand
@@ -101,7 +66,6 @@ WHERE id = 2
 ```
 
 ## Récupérer la liste de tous les produits de la marque 2
-
 ```sql
 SELECT *
 FROM product
@@ -109,7 +73,6 @@ WHERE brand_id = 2
 ```
 
 ## Récupérer les infos du produit 3 (avec le nom de la marque et de la catégorie)
-
 ```sql
 SELECT product.*, category.name, brand.name
 FROM product

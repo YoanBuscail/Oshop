@@ -8,7 +8,7 @@
         <!-- Hero Content-->
         <div class="hero-content pb-5 text-center">
             <h1 class="hero-heading"><?= $viewData["object"]->getName() ?></h1>
-            
+
             <?php
             // method_exists est une fonction native PHP qui permet de vérifier
             // si une classe ou un objet contient une certaine méthode.
@@ -73,7 +73,7 @@
                     <?php
                 }
             } else {
-                echo "Aucun produit !!!";
+                echo "Aucun produit trouvé !!!";
             }
             ?>
         </div>

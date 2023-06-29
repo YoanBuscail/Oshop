@@ -5,6 +5,7 @@
  */
 class Type extends CoreModel
 {
+    /** @var string */
     private $name;
 
     public function getName()
@@ -15,7 +16,6 @@ class Type extends CoreModel
     public function setName($name)
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -24,15 +24,22 @@ class Type extends CoreModel
      *
      * @return Type[]
      */
-    public function findAll()
+    public function findAll($sort = "")
     {
         $pdo = Database::getPDO();
 
-        $pdoStatement = $pdo->query("SELECT `id`, `name` FROM `type`");
+        $sql = "SELECT * FROM `type`";
+
+        // Si $sort n'est pas vide, alors on ajoute ORDER BY dans notre requete SQL
+        if ($sort !== "") {
+            $sql .= " ORDER BY $sort";
+        }
+
+        $pdoStatement = $pdo->query("SELECT * FROM type");
         if ($pdoStatement === false) {
             exit("Problème lors de la récupération de la liste des types");
         }
-        
+
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Type');
     }
 
@@ -45,13 +52,13 @@ class Type extends CoreModel
      */
     public function find($id)
     {
-    $pdo = Database::getPDO();
+        $pdo = Database::getPDO();
 
-    $pdoStatement = $pdo->query("SELECT `id`, `name` FROM `type` WHERE id = $id");
-    if ($pdoStatement === false) {
-        exit("Problème lors de la récupération du type n°$id");
-    }
+        $pdoStatement = $pdo->query("SELECT * FROM type WHERE id = $id");
+        if ($pdoStatement === false) {
+            exit("Problème lors de la récupération du type n°$id");
+        }
 
-    return $pdoStatement->fetchObject('Type');
+        return $pdoStatement->fetchObject('Type');
     }
 }

@@ -93,7 +93,7 @@
                     <p class="mb-md-0">
                         <a class="text-white" href="<?= $router->generate('legalNotice') ?>">Mentions légales</a>
                         <br>
-                        <a class="text-white" href="<?= $router->generate('generalTerms') ?>">Conditions générales de vente</a>
+                        <a class="text-white" href="#">Conditions générales de vente</a>
                     </p>
                 </div>
 

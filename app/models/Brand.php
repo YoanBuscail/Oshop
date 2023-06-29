@@ -1,8 +1,11 @@
 <?php
 
+/**
+ * Model servant à gérer les marques
+ */
 class Brand extends CoreModel
 {
-       /** @var string */
+    /** @var string */
     private $name;
 
     public function getName()
@@ -21,12 +24,18 @@ class Brand extends CoreModel
      *
      * @return Brand[]
      */
-    public function findAll()
+    public function findAll($sort = "")
     {
-        
         $pdo = Database::getPDO();
 
-        $pdoStatement = $pdo->query("SELECT `id`, `name` FROM `brand`");
+        $sql = "SELECT * FROM brand";
+
+        // Si $sort n'est pas vide, alors on ajoute ORDER BY dans notre requete SQL
+        if ($sort !== "") {
+            $sql .= " ORDER BY $sort";
+        }
+
+        $pdoStatement = $pdo->query("SELECT * FROM brand");
         if ($pdoStatement === false) {
             exit("Problème lors de la récupération de la liste des marques");
         }
@@ -35,17 +44,17 @@ class Brand extends CoreModel
     }
 
     /**
-    * Retourne une marque spécifique via son id dans la BDD
-    *
-    * @param int $id
-    *
-    * @return Brand
-    */
+     * Retourne une marque spécifique via son id dans la BDD
+     *
+     * @param int $id
+     *
+     * @return Brand
+     */
     public function find($id)
     {
         $pdo = Database::getPDO();
 
-        $pdoStatement = $pdo->query("SELECT `id`, `name` FROM `brand` WHERE id = $id");
+        $pdoStatement = $pdo->query("SELECT * FROM brand WHERE id = $id");
         if ($pdoStatement === false) {
             exit("Problème lors de la récupération de la marque n°$id");
         }
