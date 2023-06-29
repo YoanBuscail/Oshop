@@ -1,30 +1,16 @@
 <?php
 
-class Product
+class Product extends CoreModel
 {
-    private $id;
     private $name;
     private $description;
     private $picture;
     private $price;
     private $rate;
     private $status;
-    private $created_at;
-    private $updated_at;
     private $brand_id;
     private $category_id;
     private $type_id;
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
 
     public function getName()
     {
@@ -89,28 +75,6 @@ class Product
     public function setStatus($status)
     {
         $this->status = $status;
-        return $this;
-    }
-
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt($created_at)
-    {
-        $this->created_at = $created_at;
-        return $this;
-    }
-
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
-
-    public function setUpdatedAt($updated_at)
-    {
-        $this->updated_at = $updated_at;
         return $this;
     }
 
@@ -195,5 +159,62 @@ class Product
         $result = $pdoStatement->fetchObject('Product');
 
         return $result;
+    }
+
+    /**
+     * Retourne la liste de tous les produits d'une catégorie depuis la BDD
+     *
+     * @param int $categoryId
+     *
+     * @return Product[]
+     */
+    public function findByCategory($categoryId)
+    {
+        $pdo = Database::getPDO();
+
+        $pdoStatement = $pdo->query("SELECT * FROM product WHERE category_id = $categoryId");
+        if ($pdoStatement === false) {
+            exit("Problème lors de la récupération de la liste des produits de la catégorie n°$categoryId");
+        }
+
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Product');
+    }
+
+    /**
+     * Retourne la liste de tous les produits d'un type depuis la BDD
+     *
+     * @param int $typeId
+     *
+     * @return Product[]
+     */
+    public function findByType($typeId)
+    {
+        $pdo = Database::getPDO();
+
+        $pdoStatement = $pdo->query("SELECT * FROM product WHERE type_id = $typeId");
+        if ($pdoStatement === false) {
+            exit("Problème lors de la récupération de la liste des produits du type n°$typeId");
+        }
+
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Product');
+    }
+
+    /**
+     * Retourne la liste de tous les produits d'une marque depuis la BDD
+     *
+     * @param int $brandId
+     *
+     * @return Product[]
+     */
+    public function findByBrand($brandId)
+    {
+        $pdo = Database::getPDO();
+
+        $pdoStatement = $pdo->query("SELECT * FROM product WHERE brand_id = $brandId");
+        if ($pdoStatement === false) {
+            exit("Problème lors de la récupération de la liste des produits de la marque n°$brandId");
+        }
+
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Product');
     }
 }

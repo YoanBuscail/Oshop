@@ -43,16 +43,12 @@
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Catégories</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <?php
-                                    // Créer une instance de la classe Category
-                                    $category = new Category();
-                                    // Récupérer toutes les catégories à partir de la base de données
-                                    $categories = $category->findAll();
-                                ?>
-                                <?php foreach ($categories as $categoryObj) { ?>
-                                    <a class="dropdown-item" href="products_list.html"><?= $categoryObj->getName(); ?></a>
-                                <?php 
-                                }; 
-                                ?>
+                                    foreach ($categoriesList as $categoryElement) {
+                                        ?>
+                                        <a class="dropdown-item" href="<?= $router->generate("category", ["id" => $categoryElement->getId()]) ?>"><?= $categoryElement->getName() ?></a>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </li>
@@ -60,14 +56,8 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Types de produits</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <?php
-                                    // Créer une instance de la classe Type
-                                    $type = new Type();
-                                    // Récupérer toutes les catégories à partir de la base de données
-                                    $types = $type->findAll();
-                                ?>
-                                <?php foreach ($types as $typeObj) { ?>
-                                    <a class="dropdown-item" href="products_list.html"><?= $typeObj->getName(); ?></a>
+                                <?php foreach ($typesList as $typeElement) { ?>
+                                    <a class="dropdown-item" href="<?= $router->generate("type", ["id" => $typeElement->getId()]) ?>"><?= $typeElement->getName(); ?></a>
                                 <?php 
                                 }; 
                                 ?>
@@ -78,14 +68,8 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Marques</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <?php
-                                    // Créer une instance de la classe Brand
-                                    $brand = new Brand();
-                                    // Récupérer toutes les marques à partir de la base de données
-                                    $brands = $brand->findAll();
-                                ?>
-                                <?php foreach ($brands as $brandObj) { ?>
-                                    <a class="dropdown-item" href="products_list.html"><?= $brandObj->getName(); ?></a>
+                                <?php foreach ($brandsList as $brandElement) { ?>
+                                    <a class="dropdown-item" href="<?= $router->generate("brand", ["id" => $brandElement->getId()]) ?>"><?= $brandElement->getName(); ?></a>
                                 <?php 
                                 }; 
                                 ?>

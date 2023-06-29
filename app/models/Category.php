@@ -1,52 +1,31 @@
 <?php
 
 /**
- * Model servant à gérer les catégories
+ * Sur les setters, j'ai laissé un petit ": self". Ce truc là sert à typer le retour d'une fonction
+ * (en gros, ça oblige le dev qui code dans la fonction à retourner le bon type).
+ * On peut le faire pour n'importe quel type depuis PHP 7 (: int, : string, : array, : bool, etc).
+ * Ici, le mot self indique que le type, c'est l'objet dans lequel on se trouve.
+ * Donc étant dans la classe Category, self indique qu'on retourne un objet Category.
  */
-class Category
-{
-    /** @var int Identifiant unique de ma catégorie */
-    private $id;
 
-    /** @var string */
+class Category extends CoreModel
+{
     private $name;
 
-    /** @var string */
     private $subtitle;
 
-    /** @var string */
     private $picture;
 
-    /** @var int */
-    private $home_order	;
-
-    /** @var string Date de création au format Y-m-d H:i:s */
-    private $created_at;
-
-    /** @var string Date de modification au format Y-m-d H:i:s */
-    private $updated_at;
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
+    private $home_order;
 
     public function getName()
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName($name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -55,10 +34,9 @@ class Category
         return $this->subtitle;
     }
 
-    public function setSubtitle($subtitle)
+    public function setSubtitle($subtitle): self
     {
         $this->subtitle = $subtitle;
-
         return $this;
     }
 
@@ -67,64 +45,47 @@ class Category
         return $this->picture;
     }
 
-    public function setPicture($picture)
+    public function setPicture($picture): self
     {
         $this->picture = $picture;
-
         return $this;
     }
 
-    public function getHome_order()
+    public function getHomeOrder()
     {
         return $this->home_order;
     }
 
-    public function setHome_order($home_order)
+    public function setHomeOrder($home_order): self
     {
         $this->home_order = $home_order;
-
-        return $this;
-    }
-
-    public function getCreated_at()
-    {
-        return $this->created_at;
-    }
-
-    public function setCreated_at($created_at)
-    {
-        $this->created_at = $created_at;
-
-        return $this;
-    }
-
-    public function getUpdated_at()
-    {
-        return $this->updated_at;
-    }
-
-    public function setUpdated_at($updated_at)
-    {
-        $this->updated_at = $updated_at;
-
         return $this;
     }
 
     /**
      * Retourne la liste de toutes les catégories de la BDD
      *
+     * @param string $sort Contient le nom d'un champ sur lequel trier
+     *
      * @return Category[]
      */
-    public function findAll()
+    public function findAll($sort = "")
     {
         $pdo = Database::getPDO();
 
-        $pdoStatement = $pdo->query("SELECT `id`, `name`, `subtitle`, `picture`, `home_order` FROM `category`");
+        $sql = "SELECT * FROM category";
+
+        // Si $sort n'est pas vide, alors on ajoute ORDER BY dans notre requete SQL
+        if ($sort !== "") {
+            $sql .= " ORDER BY $sort";
+        }
+
+        $pdoStatement = $pdo->query($sql);
         if ($pdoStatement === false) {
             exit("Problème lors de la récupération de la liste des catégories");
         }
 
-        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Category');     
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Category');
     }
 
     /**
@@ -136,13 +97,13 @@ class Category
      */
     public function find($id)
     {
-    $pdo = Database::getPDO();
+        $pdo = Database::getPDO();
 
-    $pdoStatement = $pdo->query("SELECT `id`, `name`, `subtitle`, `picture`, `home_order` FROM `category` WHERE id = $id");
-    if ($pdoStatement === false) {
-        exit("Problème lors de la récupération de la catégorie n°$id");
-    }
-    
-    return $pdoStatement->fetchObject('Category');
+        $pdoStatement = $pdo->query("SELECT * FROM category WHERE id = $id");
+        if ($pdoStatement === false) {
+            exit("Problème lors de la récupération de la catégorie n°$id");
+        }
+
+        return $pdoStatement->fetchObject('Category');
     }
 }

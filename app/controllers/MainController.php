@@ -35,11 +35,6 @@ class MainController
         $this->show("legal_notice");
     }
 
-    public function generalTerms()
-    {
-        $this->show("general_terms");
-    }
-
     /**
      * Affiche la page
      *

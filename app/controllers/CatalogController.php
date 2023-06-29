@@ -5,19 +5,70 @@ class CatalogController
     public function category($params)
     {
         // Maintenant on peut récupérer la bonne catégories dans la DB
-        // Vu qu'on n'a pas encore de db, pour l'instant on va se contenter de passer l'id à la vue pour l'afficher.
+        $categoryModel = new Category();
+        $category = $categoryModel->find($params["id"]);
 
-        $this->show("products_list", ["id" => $params["id"], "title" => "Catégorie"]);
+        // Si la catégorie demandée n'est pas trouvé en BDD, on va afficher la page 404 et tout arrêter.
+        if ($category === false) {
+            $errorController = new ErrorController();
+            $errorController->error404();
+            exit;
+        }
+
+        // On doit aussi récupérer les produits de la catégorie pour les donner à la vue, pour boucler dessus et les afficher.
+        $productModel = new Product();
+        $products = $productModel->findByCategory($params["id"]);
+
+        $this->show("products_list", [
+            "object" => $category,
+            "products" => $products,
+        ]);
     }
 
     public function type($params)
     {
-        $this->show("products_list", ["id" => $params["id"], "title" => "Type"]);
+        // Maintenant on peut récupérer le bon type dans la DB
+        $typeModel = new Type();
+        $type = $typeModel->find($params["id"]);
+
+        // Si le type demandé n'est pas trouvé en BDD, on va afficher la page 404 et tout arrêter.
+        if ($type === false) {
+            $errorController = new ErrorController();
+            $errorController->error404();
+            exit;
+        }
+
+        // On doit aussi récupérer les produits du type pour les donner à la vue, pour boucler dessus et les afficher.
+        $productModel = new Product();
+        $products = $productModel->findByType($params["id"]);
+
+        $this->show("products_list", [
+            "object" => $type,
+            "products" => $products,
+        ]);
     }
 
     public function brand($params)
     {
-        $this->show("products_list", ["id" => $params["id"], "title" => "Marque"]);
+        // Maintenant on peut récupérer la bonne marque dans la DB
+        $brandModel = new Brand();
+        $brand = $brandModel->find($params["id"]);
+
+        // Si la marque demandée n'est pas trouvé en BDD, on va afficher la page 404 et tout arrêter.
+        if ($brand === false) {
+            $errorController = new ErrorController();
+            $errorController->error404();
+            exit;
+        }
+
+        // On doit aussi récupérer les produits de la marque pour les donner à la vue, pour boucler dessus et les afficher.
+        $productModel = new Product();
+        $products = $productModel->findByBrand($params["id"]);
+
+        $this->show("products_list", [
+            "object" => $brand,
+            "products" => $products,
+        ]);
     }
 
     public function product($params)
@@ -36,6 +87,15 @@ class CatalogController
         global $router; // Ce truc là, c'est DÉGUEULASSE.
 
         $absoluteUrl = $_SERVER["BASE_URI"];
+
+        $categoryModel = new Category();
+        $categoriesList = $categoryModel->findAll("name");
+
+        $typeModel = new Type();
+        $typesList = $typeModel->findAll();
+
+        $brandModel = new Brand();
+        $brandsList = $brandModel->findAll();
 
         require_once __DIR__ . "/../views/header.tpl.php";
         require_once __DIR__ . "/../views/$viewName.tpl.php";
