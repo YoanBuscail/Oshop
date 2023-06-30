@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Models;
+
+use App\Utils\Database;
+use PDO;
+
 class Product extends CoreModel
 {
     private $name;
@@ -132,7 +137,7 @@ class Product extends CoreModel
         }
 
         // On récupèrera le résultat sous forme d'objets
-        $results = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Product');
+        $results = $pdoStatement->fetchAll(PDO::FETCH_CLASS, Product::class);
 
         // On retournera le résultat
         return $results;
@@ -156,7 +161,7 @@ class Product extends CoreModel
             exit("Problème lors de la récupération du produit n°$id");
         }
 
-        $result = $pdoStatement->fetchObject('Product');
+        $result = $pdoStatement->fetchObject(Product::class);
 
         return $result;
     }
@@ -177,7 +182,7 @@ class Product extends CoreModel
             exit("Problème lors de la récupération de la liste des produits de la catégorie n°$categoryId");
         }
 
-        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Product');
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, Product::class);
     }
 
     /**
@@ -196,7 +201,7 @@ class Product extends CoreModel
             exit("Problème lors de la récupération de la liste des produits du type n°$typeId");
         }
 
-        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Product');
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, Product::class);
     }
 
     /**
@@ -215,6 +220,6 @@ class Product extends CoreModel
             exit("Problème lors de la récupération de la liste des produits de la marque n°$brandId");
         }
 
-        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Product');
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, Product::class);
     }
 }

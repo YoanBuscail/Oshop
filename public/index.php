@@ -1,6 +1,11 @@
 <?php
 
 // Chargement des dépendances via autoload.php de composer
+
+use App\Controllers\CatalogController;
+use App\Controllers\ErrorController;
+use App\Controllers\MainController;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 /*
@@ -38,7 +43,7 @@ $router->map(
     "GET", // La méthode HTTP autorisée pour cette route
     "/",   // Partie de l'URL qui correspond à la page demandée (route)
     [
-        'controller' => 'MainController',
+        'controller' => MainController::class,
         'method' => 'home',
     ],     // Cible le bon controller et la bonne methode
     'home' // Identifiant unique de la route
@@ -48,7 +53,7 @@ $router->map(
     "GET",
     "/legal-notice",
     [
-        'controller' => 'MainController',
+        'controller' => MainController::class,
         'method' => 'legalNotice',
     ],
     'legalNotice'
@@ -58,7 +63,7 @@ $router->map(
     "GET",
     "/category/[i:id]",
     [
-        'controller' => 'CatalogController',
+        'controller' => CatalogController::class,
         'method' => 'category',
     ],
     'category'
@@ -68,7 +73,7 @@ $router->map(
     "GET",
     "/type/[i:id]",
     [
-        'controller' => 'CatalogController',
+        'controller' => CatalogController::class,
         'method' => 'type',
     ],
     'type'
@@ -78,7 +83,7 @@ $router->map(
     "GET",
     "/brand/[i:id]",
     [
-        'controller' => 'CatalogController',
+        'controller' => CatalogController::class,
         'method' => 'brand',
     ],
     'brand'
@@ -88,7 +93,7 @@ $router->map(
     "GET",
     "/product/[i:id]",
     [
-        'controller' => 'CatalogController',
+        'controller' => CatalogController::class,
         'method' => 'product',
     ],
     'product'
@@ -99,7 +104,7 @@ $router->map(
     "GET",
     "/test",
     [
-        'controller' => 'MainController',
+        'controller' => MainController::class,
         'method' => 'test',
     ],
     'test'

@@ -1,5 +1,12 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\Type;
+
 class CatalogController extends CoreController
 {
     public function category($params)

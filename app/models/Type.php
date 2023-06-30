@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Models;
+
+use App\Utils\Database;
+use PDO;
+
 /**
  * Model servant à gérer les types
  */
@@ -42,7 +47,7 @@ class Type extends CoreModel
             exit("Problème lors de la récupération de la liste des types");
         }
 
-        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Type');
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, Type::class);
     }
 
     /**
@@ -61,6 +66,6 @@ class Type extends CoreModel
             exit("Problème lors de la récupération du type n°$id");
         }
 
-        return $pdoStatement->fetchObject('Type');
+        return $pdoStatement->fetchObject(Type::class);
     }
 }

@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Models;
+
+use App\Utils\Database;
+use PDO;
+
 /**
  * Model servant à gérer les marques
  */
@@ -40,7 +45,7 @@ class Brand extends CoreModel
             exit("Problème lors de la récupération de la liste des marques");
         }
 
-        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Brand');
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, Brand::class);
     }
 
     /**
@@ -59,6 +64,6 @@ class Brand extends CoreModel
             exit("Problème lors de la récupération de la marque n°$id");
         }
 
-        return $pdoStatement->fetchObject('Brand');
+        return $pdoStatement->fetchObject(Brand::class);
     }
 }

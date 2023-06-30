@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Models;
+
+use App\Utils\Database;
+use PDO;
+
 /**
  * Sur les setters, j'ai laissé un petit ": self". Ce truc là sert à typer le retour d'une fonction
  * (en gros, ça oblige le dev qui code dans la fonction à retourner le bon type).
@@ -85,7 +90,7 @@ class Category extends CoreModel
             exit("Problème lors de la récupération de la liste des catégories");
         }
 
-        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Category');
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, Category::class);
     }
 
     /**
@@ -104,6 +109,6 @@ class Category extends CoreModel
             exit("Problème lors de la récupération de la catégorie n°$id");
         }
 
-        return $pdoStatement->fetchObject('Category');
+        return $pdoStatement->fetchObject(Category::class);
     }
 }
