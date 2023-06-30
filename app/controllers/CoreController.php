@@ -1,6 +1,6 @@
 <?php
 
-class ControllerModel
+class CoreController
 {
    /**
      * Affiche la page
@@ -23,6 +23,24 @@ class ControllerModel
 
         $productModel = new Product();
         $productsList = $productModel->findAll("name");
+
+         // Ici, on crée une "copie" de $typeList avec une petite différence : les index seront les id des type.
+        // Avantage : il sera très simple de piocher le bon type dans cette liste là.
+        // Exemple : Si on veut récupérer le type 7, on aura juste à faire $typesListById[7].
+        $typesListById = [];
+        foreach ($typesList as $typeElement) {
+            $typesListById[$typeElement->getId()] = $typeElement;
+        }
+
+        $brandsListById = [];
+        foreach ($brandsList as $brandElement) {
+            $brandsListById[$brandElement->getId()] = $brandElement;
+        }
+
+        $categoriesListById = [];
+        foreach ($categoriesList as $categoryElement) {
+            $categoriesListById[$categoryElement->getId()] = $categoryElement;
+        }
 
         $absoluteUrl = $_SERVER["BASE_URI"];
 

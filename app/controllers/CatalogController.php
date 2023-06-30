@@ -1,6 +1,6 @@
 <?php
 
-class CatalogController extends ControllerModel
+class CatalogController extends CoreController
 {
     public function category($params)
     {

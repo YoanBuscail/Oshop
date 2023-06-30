@@ -35,7 +35,7 @@ class Brand extends CoreModel
             $sql .= " ORDER BY $sort";
         }
 
-        $pdoStatement = $pdo->query("SELECT * FROM brand");
+        $pdoStatement = $pdo->query($sql);
         if ($pdoStatement === false) {
             exit("Problème lors de la récupération de la liste des marques");
         }
