@@ -27,6 +27,8 @@ class Brand extends CoreModel
     /**
      * Retourne la liste de toutes les marques de la BDD
      *
+     * @param string $sort Contient le nom d'un champ sur lequel trier
+     *
      * @return Brand[]
      */
     public function findAll($sort = "")

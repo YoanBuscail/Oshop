@@ -41,6 +41,4 @@ class MainController extends CoreController
     {
         $this->show("legal_notice");
     }
-
-    
 }

@@ -2,7 +2,7 @@
     <div class="container">
         <!-- Breadcrumbs -->
         <ol class="breadcrumb justify-content-center">
-            <li class="breadcrumb-item"><a href="<?= $router->generate("home") ?>">Home</a></li>
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
             <li class="breadcrumb-item active">Détente</li>
         </ol>
     </div>
@@ -21,7 +21,7 @@
             </div>
             <div class="col-lg-6 col-sm-12">
                 <div class="mb-3">
-                    <h3 class="h3 text-uppercase mb-1"><?= $productsList->getName()?></h3>
+                    <h3 class="h3 text-uppercase mb-1"><?= $product->getName() ?></h3>
                     <div class="text-muted">by <em>BOOTstrap</em></div>
                     <div>
                         <i class="fa fa-star"></i>

@@ -9,7 +9,7 @@ use App\Models\Type;
 
 class CoreController
 {
-   /**
+    /**
      * Affiche la page
      *
      * @param string $viewName
@@ -18,6 +18,8 @@ class CoreController
     protected function show($viewName, $viewData = [])
     {
         global $router; // Ce truc là, c'est DÉGUEULASSE.
+
+        $absoluteUrl = $_SERVER["BASE_URI"];
 
         $categoryModel = new Category();
         $categoriesList = $categoryModel->findAll("name");
@@ -31,7 +33,7 @@ class CoreController
         $productModel = new Product();
         $productsList = $productModel->findAll("name");
 
-         // Ici, on crée une "copie" de $typeList avec une petite différence : les index seront les id des type.
+        // Ici, on crée une "copie" de $typeList avec une petite différence : les index seront les id des type.
         // Avantage : il sera très simple de piocher le bon type dans cette liste là.
         // Exemple : Si on veut récupérer le type 7, on aura juste à faire $typesListById[7].
         $typesListById = [];
@@ -44,15 +46,14 @@ class CoreController
             $brandsListById[$brandElement->getId()] = $brandElement;
         }
 
-        $categoriesListById = [];
-        foreach ($categoriesList as $categoryElement) {
-            $categoriesListById[$categoryElement->getId()] = $categoryElement;
+        $productsListById = [];
+        foreach ($productsList as $productElement) {
+            $productsListById[$productElement->getId()] = $productElement;
         }
 
-        $absoluteUrl = $_SERVER["BASE_URI"];
 
-        require_once __DIR__ . "/../views/header.tpl.php";
-        require_once __DIR__ . "/../views/$viewName.tpl.php";
-        require_once __DIR__ . "/../views/footer.tpl.php";
+        require_once __DIR__ . "/../Views/header.tpl.php";
+        require_once __DIR__ . "/../Views/$viewName.tpl.php";
+        require_once __DIR__ . "/../Views/footer.tpl.php";
     }
 }

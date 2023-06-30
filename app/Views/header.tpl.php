@@ -42,10 +42,10 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Catégories</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <?php
-                                    foreach ($categoriesList as $categoryElement) {
+                                    <?php
+                                    foreach ($categoriesList as $categoryMenu) {
                                         ?>
-                                        <a class="dropdown-item" href="<?= $router->generate("category", ["id" => $categoryElement->getId()]) ?>"><?= $categoryElement->getName() ?></a>
+                                        <a class="dropdown-item" href="<?= $router->generate("category", ["id" => $categoryMenu->getId()]) ?>"><?= $categoryMenu->getName() ?></a>
                                         <?php
                                     }
                                     ?>
@@ -56,11 +56,13 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Types de produits</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <?php foreach ($typesList as $typeElement) { ?>
-                                    <a class="dropdown-item" href="<?= $router->generate("type", ["id" => $typeElement->getId()]) ?>"><?= $typeElement->getName(); ?></a>
-                                <?php 
-                                }; 
-                                ?>
+                                    <?php
+                                    foreach ($typesList as $typeMenu) {
+                                        ?>
+                                        <a class="dropdown-item" href="<?= $router->generate("type", ["id" => $typeMenu->getId()]) ?>"><?= $typeMenu->getName() ?></a>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </li>
@@ -68,11 +70,13 @@
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Marques</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <?php foreach ($brandsList as $brandElement) { ?>
-                                    <a class="dropdown-item" href="<?= $router->generate("brand", ["id" => $brandElement->getId()]) ?>"><?= $brandElement->getName(); ?></a>
-                                <?php 
-                                }; 
-                                ?>
+                                    <?php
+                                    foreach ($brandsList as $brandMenu) {
+                                        ?>
+                                        <a class="dropdown-item" href="<?= $router->generate("brand", ["id" => $brandMenu->getId()]) ?>"><?= $brandMenu->getName() ?></a>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </li>
