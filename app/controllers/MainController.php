@@ -1,6 +1,6 @@
 <?php
 
-class MainController extends ControllerModel
+class MainController extends CoreController
 {
     public function test()
     {

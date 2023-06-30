@@ -22,20 +22,22 @@ class Type extends CoreModel
     /**
      * Retourne la liste de tous les types de la BDD
      *
+     * @param string $sort Contient le nom d'un champ sur lequel trier
+     *
      * @return Type[]
      */
     public function findAll($sort = "")
     {
         $pdo = Database::getPDO();
 
-        $sql = "SELECT * FROM `type`";
+        $sql = "SELECT * FROM type";
 
         // Si $sort n'est pas vide, alors on ajoute ORDER BY dans notre requete SQL
         if ($sort !== "") {
             $sql .= " ORDER BY $sort";
         }
 
-        $pdoStatement = $pdo->query("SELECT * FROM type");
+        $pdoStatement = $pdo->query($sql);
         if ($pdoStatement === false) {
             exit("Problème lors de la récupération de la liste des types");
         }
