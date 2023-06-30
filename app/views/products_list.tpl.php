@@ -62,7 +62,10 @@
                             </a>
                         </div>
                         <div class="py-2">
-                            <p class="text-muted text-sm mb-1"><?= $typesListById[$product->getTypeId()]->getName() ?></p>
+                            <!-- TODO remplacer Type n°X par le nom du type -->
+                            <p class="text-muted text-sm mb-1">
+                                <?= $typesListById[$product->getTypeId()]->getName() ?>
+                            </p>
                             <h3 class="h6 text-uppercase mb-1">
                                 <a href="<?= $router->generate("product", ["id" => $product->getId()]) ?>" class="text-dark"><?= $product->getName() ?></a>
                             </h3>

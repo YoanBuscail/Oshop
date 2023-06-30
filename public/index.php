@@ -16,6 +16,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
         - Soit on appel la bonne méthode du bon controller correspondant à notre route
         - Soit on affiche la page d'erreur 404
 */
+
 require_once __DIR__ . "/../app/controllers/CoreController.php";
 require_once __DIR__ . "/../app/controllers/ErrorController.php";
 require_once __DIR__ . "/../app/controllers/MainController.php";
