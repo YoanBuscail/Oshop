@@ -102,7 +102,7 @@ class CatalogController extends CoreController
 
         // Afficher la vue du produit
         $this->show("product", [
-            "objet" => $product,
+            "object" => $product,
             "brand_name" => $brandName,
             "category_name" => $categoryName
         ]);
