@@ -21,6 +21,15 @@
                                 <i class="fa fa-phone"></i> 01 02 03 04 05
                             </li>
                             <li class="list-inline-item px-3 border-left d-none d-lg-inline-block">Livraison offerte à partir de 100€</li>
+                            <li class="nav-item dropdown list-inline-item px-3 border-right d-none d-lg-inline-block ">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                EUR
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a href="#" class="dropdown-item text-sm">USD</a>
+                                <a href="#" class="dropdown-item text-sm">GPD</a>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>

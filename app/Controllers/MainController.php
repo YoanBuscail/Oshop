@@ -34,17 +34,26 @@ class MainController extends CoreController
 
     public function home()
     {
-        $model = new Category();
-        $categoriesList = $model->findHome();
-        $this->show("home",
-        [
-            "categoriesHomePage" => $categoriesList,
+        // Récupérer les catégories à mettre en avant sur la page d'accueil (les 5 qui ont un ordre précis en BDD).
+        // Au final, ce qu'on veut ce sont des Categories -> donc model Category.
+        $categoryModel = new Category();
+        $categoriesForHomepage = $categoryModel->findAllForHomepage();
+
+        // Les donner à la vue.
+        // Dans la vue, il faudra faire l'affichage dynamique à partir de ces données.
+
+        $this->show("home", [
+            "categories_for_homepage" => $categoriesForHomepage
         ]);
-        
     }
 
     public function legalNotice()
     {
         $this->show("legal_notice");
+    }
+
+    public function generalTerms()
+    {
+        $this->show("general_terms");
     }
 }

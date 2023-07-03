@@ -112,12 +112,20 @@ class Category extends CoreModel
         return $pdoStatement->fetchObject(Category::class);
     }
 
-    public function findHome(){
+     /**
+     * Retourne la liste des catégories à mettre en avant sur la homepage, dansd le bon ordre.
+     *
+     * @return Category[]
+     */
+    public function findAllForHomepage()
+    {
         $pdo = Database::getPDO();
 
-        $pdoStatement = $pdo->query("SELECT * FROM category WHERE home_order>0 ORDER BY home_order");
+        $sql = "SELECT * FROM category WHERE home_order > 0 ORDER BY home_order";
+
+        $pdoStatement = $pdo->query($sql);
         if ($pdoStatement === false) {
-            exit("Problème lors de la récupération des catégories");
+            exit("Problème lors de la récupération de la liste des catégories de la Homepage");
         }
 
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, Category::class);

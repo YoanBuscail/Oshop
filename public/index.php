@@ -45,7 +45,17 @@ $router->map(
         'controller' => MainController::class,
         'method' => 'legalNotice',
     ],
-    'legalNotice'
+    'legal_notice'
+);
+
+$router->map(
+    "GET",
+    "/general-terms",
+    [
+        'controller' => MainController::class,
+        'method' => 'generalTerms',
+    ],
+    'general_terms'
 );
 
 $router->map(
