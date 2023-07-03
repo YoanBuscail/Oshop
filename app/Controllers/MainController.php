@@ -34,7 +34,13 @@ class MainController extends CoreController
 
     public function home()
     {
-        $this->show("home");
+        $model = new Category();
+        $categoriesList = $model->findHome();
+        $this->show("home",
+        [
+            "categoriesHomePage" => $categoriesList,
+        ]);
+        
     }
 
     public function legalNotice()
