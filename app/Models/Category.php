@@ -112,7 +112,7 @@ class Category extends CoreModel
         return $pdoStatement->fetchObject(Category::class);
     }
 
-     /**
+    /**
      * Retourne la liste des catégories à mettre en avant sur la homepage, dansd le bon ordre.
      *
      * @return Category[]

@@ -5,8 +5,6 @@ namespace App\Controllers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Type;
-use App\Models\Product;
-
 
 class CoreController
 {
@@ -30,9 +28,6 @@ class CoreController
 
         $brandModel = new Brand();
         $brandsList = $brandModel->findAll("name");
-
-        $productModel = new Product();
-        $product = $productModel->find("id");
 
         // Ici, on crée une "copie" de $categoryList avec une petite différence : les index seront les id des catégories.
         // Avantage : il sera très simple de piocher la bonne catégorie dans cette liste là.
