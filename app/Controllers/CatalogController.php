@@ -80,31 +80,10 @@ class CatalogController extends CoreController
 
     public function product($params)
     {
-        // Récupérer le produit à partir de l'ID
+        // Première étape : récupérer les données -> le produit correspond à l'id demandé dans l'URL.
         $productModel = new Product();
         $product = $productModel->find($params["id"]);
 
-        // Vérifier si le produit existe
-        if ($product === false) {
-            $errorController = new ErrorController();
-            $errorController->error404();
-            exit;
-        }
-
-        // Récupérer les détails supplémentaires (marque et catégorie) du produit
-        $brandModel = new Brand();
-        $brand = $brandModel->find($product->getBrandId());
-        $brandName = $brand->getName();
-
-        $categoryModel = new Category();
-        $category = $categoryModel->find($product->getCategoryId());
-        $categoryName = $category->getName();
-
-        // Afficher la vue du produit
-        $this->show("product", [
-            "object" => $product,
-            "brand_name" => $brandName,
-            "category_name" => $categoryName
-        ]);
+        $this->show("product", ["product" => $product]);
     }
 }
