@@ -177,7 +177,7 @@ class Product extends CoreModel
     {
         $pdo = Database::getPDO();
 
-        $pdoStatement = $pdo->query("SELECT * FROM product WHERE category_id = $categoryId");
+        $pdoStatement = $pdo->query("SELECT * FROM product WHERE category_id = $categoryId ORDER BY `name`");
         if ($pdoStatement === false) {
             exit("Problème lors de la récupération de la liste des produits de la catégorie n°$categoryId");
         }
@@ -196,7 +196,7 @@ class Product extends CoreModel
     {
         $pdo = Database::getPDO();
 
-        $pdoStatement = $pdo->query("SELECT * FROM product WHERE type_id = $typeId");
+        $pdoStatement = $pdo->query("SELECT * FROM product WHERE type_id = $typeId ORDER BY `name`");
         if ($pdoStatement === false) {
             exit("Problème lors de la récupération de la liste des produits du type n°$typeId");
         }
@@ -215,7 +215,7 @@ class Product extends CoreModel
     {
         $pdo = Database::getPDO();
 
-        $pdoStatement = $pdo->query("SELECT * FROM product WHERE brand_id = $brandId");
+        $pdoStatement = $pdo->query("SELECT * FROM product WHERE brand_id = $brandId ORDER BY `name`");
         if ($pdoStatement === false) {
             exit("Problème lors de la récupération de la liste des produits de la marque n°$brandId");
         }

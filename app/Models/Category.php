@@ -111,4 +111,15 @@ class Category extends CoreModel
 
         return $pdoStatement->fetchObject(Category::class);
     }
+
+    public function findHome(){
+        $pdo = Database::getPDO();
+
+        $pdoStatement = $pdo->query("SELECT * FROM category WHERE home_order>0 ORDER BY home_order");
+        if ($pdoStatement === false) {
+            exit("Problème lors de la récupération des catégories");
+        }
+
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, Category::class);
+    }
 }

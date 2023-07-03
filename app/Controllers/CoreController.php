@@ -4,8 +4,9 @@ namespace App\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
-use App\Models\Product;
 use App\Models\Type;
+use App\Models\Product;
+
 
 class CoreController
 {
@@ -31,7 +32,7 @@ class CoreController
         $brandsList = $brandModel->findAll("name");
 
         $productModel = new Product();
-        $productsList = $productModel->findAll("name");
+        $product = $productModel->find("id");
 
         // Ici, on crée une "copie" de $typeList avec une petite différence : les index seront les id des type.
         // Avantage : il sera très simple de piocher le bon type dans cette liste là.
@@ -40,17 +41,6 @@ class CoreController
         foreach ($typesList as $typeElement) {
             $typesListById[$typeElement->getId()] = $typeElement;
         }
-
-        $brandsListById = [];
-        foreach ($brandsList as $brandElement) {
-            $brandsListById[$brandElement->getId()] = $brandElement;
-        }
-
-        $productsListById = [];
-        foreach ($productsList as $productElement) {
-            $productsListById[$productElement->getId()] = $productElement;
-        }
-
 
         require_once __DIR__ . "/../Views/header.tpl.php";
         require_once __DIR__ . "/../Views/$viewName.tpl.php";
