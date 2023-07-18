@@ -21,7 +21,7 @@ $categoriesForHomepage = $viewData['categories_for_homepage'];
                 ?>
                 <div class="col-md-6">
                     <div class="card border-0 text-white text-center">
-                        <img src="<?= $absoluteUrl ?>/<?= $categoryForHomepage->getPicture() ?>" alt="Card image" class="card-img">
+                        <img src="<?= $categoryForHomepage->getPicture() ?>" alt="Card image" class="card-img">
                         <div class="card-img-overlay d-flex align-items-center">
                             <div class="w-100 py-3">
                                 <h2 class="display-3 font-weight-bold mb-4"><?= $categoryForHomepage->getName() ?></h2>
@@ -42,7 +42,7 @@ $categoriesForHomepage = $viewData['categories_for_homepage'];
                 ?>
                 <div class="col-lg-4">
                     <div class="card border-0 text-center text-white">
-                        <img src="<?= $absoluteUrl ?>/<?= $categoryForHomepage->getPicture() ?>" alt="Card image" class="card-img">
+                        <img src="<?= $categoryForHomepage->getPicture() ?>" alt="Card image" class="card-img">
                         <div class="card-img-overlay d-flex align-items-center">
                             <div class="w-100">
                                 <h2 class="display-4 mb-4"><?= $categoryForHomepage->getName() ?></h2>
