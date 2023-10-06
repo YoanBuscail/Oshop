@@ -72,4 +72,6 @@ php -S localhost:8000 -t public
 
 Vous pouvez personnaliser Oshop en fonction des besoins spécifiques de votre boutique de chaussures en ligne en modifiant les vues, les contrôleurs et les modèles du modèle MVC.
 
+---
+
 Ce projet de boutique en ligne a été réalisé dans le cadre de ma formation de développeur web, en utilisant PHP, le modèle MVC, et la méthodologie agile Scrum. Il vise à permettre aux marques de chaussures de créer leur propre boutique en ligne de manière efficace. Si vous avez des questions ou des suggestions d'amélioration, n'hésitez pas à me contacter. Bonne navigation sur Oshop ! 👞🖥️
